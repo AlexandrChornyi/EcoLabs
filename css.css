@@ -1,0 +1,78 @@
+body {
+    height: 100vh;
+}
+
+.container-fluid {
+    height: 100%;
+    background: #2a2a2a;
+    color: #e9d8e4;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons-container {
+    width: 10%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.lab-container {
+    width: 90%;
+}
+
+.inputs-container {
+    display: flex;
+}
+
+.inputs-column {
+    width: 50%;
+}
+
+.input-holder {
+    padding: 5px 0;
+}
+
+.results-container {
+    margin-top: 15px;
+}
+
+.result-holder {
+    display: flex;
+}
+
+input {
+    background: inherit;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+.special-res-holder {
+    display: flex;
+}
+
+.select-holder {
+    background: #2a2a2a;
+    color: #e9d8e4;
+    border: 1px solid #ffc107;
+    padding: 2px 2px;
+}
+
+.output-area {
+    padding: 0 0;
+    background: #2a2a2a;
+    color: #e9d8e4;
+    width: 100%;
+    height: 100%;
+}
+
+.output-area > p {
+    padding: 0 0;
+    margin: 0 0;
+    /* font-size: 20px; */
+}

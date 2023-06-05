@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ecology</title>
+    <link rel="stylesheet" type="text/css" href="./css.css" >
+    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="buttons-container">
+            <button type="button" class="btn btn-outline-primary" container="lab1" win-height="auto">Лаб 1</button>
+            <button type="button" class="btn btn-outline-success" container="lab2" win-height="auto">Лаб 2</button>
+            <button type="button" class="btn btn-outline-info" container="lab3" win-height="auto">Лаб 3</button>
+            <button type="button" class="btn btn-outline-danger" container="lab4" win-height="100vh">Лаб 4</button>
+            <button type="button" class="btn btn-outline-warning" container="lab5" win-height="100vh">Лаб 5</button>
+        </div>
+        <div class="lab-container" id="lab5" hidden>
+            <div class="inputs-container">
+                
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="kfacp">kfacp: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="320" id="kfacp"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="kmaxacp">kmaxacp: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="2000" value="1024" id="kmaxacp"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="fmax">fmax: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="500" id="fmax"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="p0">p0: </label>
+                        <input class="text-warning" type="number" step="0.01" min="1" max="1000" value="2.90" id="p0"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="kpacp">kpacp: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="832" id="kpacp"/>
+                    </div>
+                </div>
+
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="koacp">koacp: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="768" id="koacp"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="y1max">y1max: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="10" id="y1max"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="ymax">ymax: </label>
+                        <input class="text-warning" type="number" step="0.01" min="1" max="1000" value="16.39" id="ymax"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="pmax">pmax: </label>
+                        <input class="text-warning" type="number" step="1" min="1" max="1000" value="10" id="pmax"/>
+                    </div>
+                    <div class="input-holder">
+                        <select id="sensor-type" class="select-holder">
+                            <option value="1" selected="selected">Термопара хромель-копель</option>
+                            <option value="2">Термопара хромель-алюмель</option>
+                            <option value="3">Платиновий термометр опору Пa №1</option>
+                            <option value="4">Платиновий термометр опору Пa №2</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="results-container">
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">P(поточний тиск):</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="P"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">Kнп:</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="Knp"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">O(температура в об'єкті):</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="O"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">pg(густина технологічного потоку при робочих умовах):</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="pg"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">Kp(поправочний коефіцієнт для парових потоків):</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="Kp"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-warning text-dark pe-1">F(фактичне значення витрати):</p>
+                    <p class="border-bottom border-warning border-2 ps-2" id="F"></p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="lab-container" id="lab3" hidden>
+            <div class="inputs-container">
+                
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="M_x">M_x: </label>
+                        <input class="text-info" type="number" step="1" min="1" max="1000" value="240" id="M_x"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="x_ti">x_ti: </label>
+                        <input class="text-info" type="number" step="1" min="1" max="2000" value="250" id="x_ti"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="D_x">D_x: </label>
+                        <input class="text-info" type="number" step="1" min="1" max="1000" value="32" id="D_x"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="t_u">t_u: </label>
+                        <input class="text-info" type="number" step="1" min="1" max="1000" value="7" id="t_u"/>
+                    </div>
+                </div>
+
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="t">t: </label>
+                        <input class="text-info" type="number" step="1" min="1" max="1000" value="18" id="t"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="k">k: </label>
+                        <input class="text-info" type="number" step="0.1" min="0" max="1000" value="1.5" id="k"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="xt_0">xt_0: </label>
+                        <input class="text-info" type="number" step="0.1" min="0" max="1000" value="0.55" id="xt_0"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="results-container">
+                <p class="border-top border-bottom border-info border-2 w-50 py-1">Метод ступінчастої екстраполяції</p>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Температура на момент t = ti + 0.5tц:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="t-moment"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Чисельник екстраполяція:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="nominator"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Знаменник екстраполяція:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="denominator"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Знайдене значення температури:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="stepwise-extrp"></p>
+                </div>
+                <p class="border-top border-bottom border-info border-2 w-50 py-1">Метод стохастичної екстраполяції</p>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Значення автокореляційної функція КХ(t) = DХ[1 − (t/τ)k]:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="corelation"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-info text-dark pe-1">Знайдене значення температури:</p>
+                    <p class="border-bottom border-info border-2 ps-2" id="stochastic-extrp"></p>
+                </div>
+                <div class="result-holder">
+                    <canvas id="lab3Chart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="lab-container" id="lab4" hidden>
+            <div class="inputs-container">
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="x1">x1: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="12.0" id="x1"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="x2">x2: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="2000" value="10.0" id="x2"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="x3">x3: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="14.0" id="x3"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="x4">x4: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="34.2" id="x4"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="l">l: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="1.6" id="l"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="o1">o1: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="0.30" id="o1"/>
+                    </div>
+                </div>
+
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="o2">o2: </label>
+                        <input class="text-danger" type="number" step="0.1" min="1" max="1000" value="0.20" id="o2"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="o3">o3: </label>
+                        <input class="text-danger" type="number" step="0.01" min="0" max="1000" value="0.36" id="o3"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="o4">o4: </label>
+                        <input class="text-danger" type="number" step="0.01" min="0" max="1000" value="0.34" id="o4"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="dx123">dx123: </label>
+                        <input class="text-danger" type="number" step="0.01" min="1" max="1000" value="0.45" id="dx123"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="dx4">dx4: </label>
+                        <input class="text-danger" type="number" step="0.01" min="0" max="1000" value="0.65" id="dx4"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-container">
+                <div class="result-holder">
+                    <p class="bg-danger text-dark pe-1">Виконання умови |lj| ≤ lj* для початкових значень вимірювальних величин: </p>
+                    <p class="border-bottom border-danger border-2 ps-2" id="init-cond"></p>
+                </div>
+                <div class="special-res-holder">
+                    <div class="w-50">
+                        <p class="bg-danger text-dark pe-1 mb-0" style="width: 195px;">Система рівнянь:</p>
+                        <p class="mb-0" id="eq1"></p>
+                        <p class="mb-0" id="eq2"></p>
+                        <p class="mb-0" id="eq3"></p>
+                        <p class="mb-0" id="eq4"></p>
+                        <p id="eq5"></p>
+                    </div>
+                    <div class="result-holder">    
+                        <p class="bg-danger text-dark pe-1">Розв'язок системи:</p>
+                        <p class="border-bottom border-danger border-2 ps-2" id="sys-solution"></p>
+                    </div>
+                </div>
+                <div>
+                    <p class="bg-danger text-dark pe-1 mb-0">Виконання умови |Δxi| ≤ xi*:</p>
+                    <p class="mb-0" id="xeq1"></p>
+                    <p class="mb-0" id="xeq2"></p>
+                    <p class="mb-0" id="xeq3"></p>
+                    <p class="mb-0" id="xeq4"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-danger text-dark pe-1">Відкореговані значення вимірювальних величин: </p>
+                    <p class="border-bottom border-danger border-2 ps-2" id="revised-x"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-danger text-dark pe-1">Виконання умови |lj| ≤ lj для відкорегованих значень: </p>
+                    <p class="border-bottom border-danger border-2 ps-2" id="revised-cond"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="lab-container" id="lab1" hidden>
+            <div class="inputs-container">
+                <div class="inputs-column">
+                    <div class="input-holder">
+                        <label for="s-counts">Кількість датчиків: </label>
+                        <input class="text-primary" type="number" step="1" min="1" max="10" value="5" id="s-counts"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="survey-period">Період опитування: </label>
+                        <input class="text-primary" type="number" step="1" min="1" max="10" value="2" id="survey-period"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="exam-per1-1">Період обстеження: </label>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="4" id="exam-per1-1"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="2" id="exam-per1-2"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="8" id="exam-per1-3"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="20" value="12" id="exam-per1-4"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="6" id="exam-per1-5"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="exam-per2-1">Період обстеження: </label>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="5" id="exam-per2-1"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="0" id="exam-per2-2"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="3" id="exam-per2-3"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="1" id="exam-per2-4"/>
+                        <input class="text-primary" type="number" step="1" min="0" max="10" value="4" id="exam-per2-5"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="results-container">
+                <div class="result-holder">
+                    <div class="output-area" id="lab1-output">
+                    </div>
+                </div>
+                <div class="result-holder">
+                    <button type="button" class="btn btn-outline-primary me-2" id="sensors-data">Дані з датчиків</button>
+                    <button type="button" class="btn btn-outline-primary me-2" id="priority-changing">Зміна пріорітету</button>
+                    <button type="button" class="btn btn-outline-primary" id="exceeded-values">Перевищенні значення</button>
+                </div>
+        
+            </div>
+
+        </div>
+
+        <div class="lab-container" id="lab2" hidden>
+            <div class="inputs-container">
+                <div class="inputs-column w-100">
+                    <div class="input-holder">
+                        <label for="tempXmax">Допустима середня квадратична похибка визначення Температури: </label>
+                        <input class="text-success" type="number" step="0.1" min="0" max="100" value="4.9" id="tempXmax"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="tempXhyzm">Середня квадратична похибка вимірювання тракту Температури: </label>
+                        <input class="text-success" type="number" step="0.1" min="0" max="100" value="1.1" id="tempXhyzm"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="pressXmax">Допустима середня квадратична похибка визначення Тиску: </label>
+                        <input class="text-success" type="number" step="0.1" min="0" max="100" value="3.4" id="pressXmax"/>
+                    </div>
+                    <div class="input-holder">
+                        <label for="pressXhyzm">Середня квадратична похибка вимірювання тракту Тиску: </label>
+                        <input class="text-success" type="number" step="0.1" min="0" max="100" value="0.9" id="pressXhyzm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-container">
+                <p class="bg-success w-75 py-1">Визначення періоду опитування датчиків з реалізації випадкових процесів за температурою і тиском </p>
+                <p class="border-top border-bottom border-success border-2 w-50 py-1">За тиском: </p>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Kx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="kxp"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Значення періодів опитування тиском: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="pcorArr"></p>
+                </div>
+                <p class="border-top border-bottom border-success border-2 w-50 py-1">За температурою: </p>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Kx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="kxt"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Значення періодів опитування температури: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="tcorArr"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">T при постійному значенні σ-max при зростаючих σ-хизм: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="riseKx0"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">T при постійному значенні σ-max при спадаючих σ-хизм: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="declineKx0"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">T при постійному значенні σ-хизм при зростаючих σ-max: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="riseKx1"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">T при постійному значенні σ-хизм при спадаючих σ-max: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="declineKx1"></p>
+                </div>
+                <p class="bg-success w-75 py-1">Визначення періоду опитування датчиків за кривими реалізації випадкового процесу </p>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Крок дискретизації випадкового процесу Δτ: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="valSampStep"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Кількість перетинів N випадковим процесом: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="randProcArrL"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Довжина реалізації: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="speed"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Час, протягом якого відбулося N перетинів, τn: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="timeCrossN"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Середнє число нулів за одиницю часу nср: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="numCroosProc"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Лінія математичного очікування Mx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="mxline"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Дисперсія випадкового процесу Dx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="dispersion"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Ординати для перерізу: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="ordin"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Кореляційна функція випадкового процесу Kx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="randCorrKx"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Температура Kx за відомими значеннями σ-max, σ-хизм та Dx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="tempKx"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Тиск Kx за відомими значеннями σ-max, σ-хизм та Dx визначаємо з величину для тиску Kx: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="pressKx"></p>
+                </div>
+                <div class="result-holder">
+                    <p class="bg-success text-dark pe-1">Період опитування датчиків τ0: </p>
+                    <p class="border-bottom border-success border-2 ps-2" id="sumSurPerAndArrT"></p>
+                </div>
+                <div class="result-holder">
+                    <canvas id="lab2Chart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js" integrity="sha512-DmQnZdEjFh4R/040JxDSg3j9cS8D0oC5u2noG9Az18F11leiDFwrTOkm9PP+jdBMiH66QBa73O+54kZr5FyU7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./js.js"></script>
+    <script src="./buttons.js"></script>
+    <script src="./bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script> -->
+</body>
+</html>
